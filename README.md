@@ -31,16 +31,16 @@ Now that you have your function, there are two ways to register your function:
 Method **1** (blockingly register the task preventing glitches (requires a running event loop AND must be executed in an async function)):
 
     await(handler.register_command("print",
-									printhi,
-									aliases=["printhi", "hello"] # must be a list
-									usage=["print"] # must also be a list
-									))
+				printhi,
+				aliases=["printhi", "hello"] # must be a list
+				usage=["print"] # must also be a list
+				))
 Method **2** (asynchronously register a task (needs a running event loop)):
 
     asyncio.create_task(handler.register_command("print",
-																   printhi,
-																   aliases=["printhi", "hello"]
-																   ))
+						printhi,
+						aliases=["printhi", "hello"]
+						))
 Notice how in both of these methods we did not need to explicitly state a description, that is because of the [docstring](https://peps.python.org/pep-0257/) that we added in the function of the command.
 
 #### Calling Commands from another class:
@@ -51,10 +51,10 @@ Notice how in both of these methods we did not need to explicitly state a descri
     
     async def when_ready():
 	    await handler.register_command(
-									  "example_cmd_from_another_file",
-									  example_command_from_another_file,
-									  aliases=["ecfaf"],
-									  usage=["example_cmd_from_another_file"])
+					"example_cmd_from_another_file",
+					example_command_from_another_file,
+					aliases=["ecfaf"],
+						usage=["example_cmd_from_another_file"])
 	async def example_command_from_another_file():
 		"""
 		This function will be called from another file
